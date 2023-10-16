@@ -1,0 +1,20 @@
+---
+
+- hosts: deploy_k3s
+  become: true
+  become_method: sudo
+  become_user: root
+  any_errors_fatal: true
+  gather_facts: true
+  serial: "{{ serial | default(omit) }}"
+  tasks:
+    - include_role:
+        name: base
+    - include_role:
+        name: docker
+    - include_role:
+        name: k3s
+  environment:
+    http_proxy: "{{ http_proxy | default('') }}"
+    https_proxy: "{{ https_proxy | default('') }}"
+    no_proxy: "{{ no_proxy | default('') }}"
