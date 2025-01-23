@@ -4,7 +4,7 @@ collections:
   - name: community.general
     version: 6.6.5
   - name: ansible.posix
-    version: 1.5.2
+    version: 2.0.0
   - name: community.docker
     version: 3.4.9
   - name: kubernetes.core
